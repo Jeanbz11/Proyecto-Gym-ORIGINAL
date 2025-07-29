@@ -1,0 +1,21 @@
+/* Estilos para la lista de clientes */
+ 
+ .clientes-lista {
+     padding: 20px;
+     background-color: #f9f9f9;
+     border-radius: 5px;
+ }
+ 
+ .clientes-lista h2 {
+     color: #333;
+ }
+ 
+ .clientes-lista ul {
+     list-style-type: none;
+     padding: 0;
+ }
+ 
+ .clientes-lista li {
+     padding: 10px;
+     border-bottom: 1px solid #ddd;
+ }

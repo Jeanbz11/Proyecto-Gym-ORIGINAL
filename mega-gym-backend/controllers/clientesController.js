@@ -1,3 +1,13 @@
+// Obtener todos los clientes (solo admin)
+exports.getClientes = async (req, res) => {
+  try {
+    const clientes = await pool.query('SELECT * FROM clientes');
+    res.json(clientes.rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ mensaje: 'Error al obtener clientes' });
+  }
+};
 const pool = require('../config/db');
 
 // Registrar cliente (solo admin)

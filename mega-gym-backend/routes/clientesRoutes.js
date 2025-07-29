@@ -1,15 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const { registrarCliente } = require('../controllers/clientesController');
+const { registrarCliente, getClientes } = require('../controllers/clientesController');
 const { proteger } = require('../middlewares/authMiddleware');
 
-// Middleware para verificar admin
-const esAdmin = (req, res, next) => {
-  if (req.user.rol !== 'admin') {
-    return res.status(403).json({ mensaje: 'Acceso denegado: solo admins' });
-  }
-  next();
-};
+const { esAdmin } = require('../middlewares/adminMiddleware');
+
+
+// Obtener todos los clientes (solo admin)
+router.get('/', proteger, esAdmin, getClientes);
 
 router.post('/', proteger, esAdmin, registrarCliente);
 
